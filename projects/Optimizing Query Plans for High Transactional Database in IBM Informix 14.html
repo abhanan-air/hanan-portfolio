@@ -1,0 +1,62 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🔍 Optimizing Query Plans for High Transactional Database in IBM Informix 14</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Addressed issues with query plans getting incorrect results due to large data updates and inserts in a high transactional IBM Informix 14 database. Implemented a strategy to ensure the optimizer follows consistent and efficient execution paths.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Large volume of data updates and inserts was causing the query optimizer to generate inefficient query plans, resulting in suboptimal performance.</li>
+            <li>Needed to update statistics effectively to guide the optimizer in selecting the most efficient execution paths.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">📊 Statistics Management</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Implemented a comprehensive statistics management strategy by categorizing statistics into high, medium, and low priorities:
+            </p>
+            <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+                <li><strong>High Priority:</strong> Updated statistics for critical tables and indexes that are heavily used or affected by frequent transactions. This ensured that the optimizer had accurate and up-to-date information for key database operations.</li>
+                <li><strong>Medium Priority:</strong> Updated statistics for tables and indexes that are important but not as critical as the high-priority ones. This balanced the need for accuracy with performance considerations.</li>
+                <li><strong>Low Priority:</strong> Managed statistics for less frequently used tables and indexes, ensuring that updates did not overly impact database performance.</li>
+            </ul>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Carefully considered the timing and impact of statistics updates to avoid disrupting ongoing transactions and to ensure minimal impact on overall system performance. Implemented strategies to schedule updates during low-usage periods or off-peak hours.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Monitored query performance and execution plans before and after the implementation of the updated statistics strategy. Verified that queries were executing with optimized plans and that performance improvements were achieved.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Successfully optimized query plans by implementing a detailed statistics management strategy. The accuracy of query plans improved, leading to more efficient query execution.</li>
+            <li>Ensured consistent performance in a high transactional environment by maintaining accurate statistics and guiding the optimizer effectively.</li>
+            <li>Demonstrated effective management of database statistics to enhance query performance and optimize database operations.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">IBM Informix 14, Query Optimization, Statistics Management, Performance Tuning</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Improved query performance by ensuring that the optimizer used accurate and updated statistics.</li>
+            <li>Enhanced overall system efficiency and responsiveness in a high transactional database environment.</li>
+            <li>Achieved more predictable and reliable query execution paths, contributing to a better user experience and system stability.</li>
+        </ul>
+    </section>
+</div>

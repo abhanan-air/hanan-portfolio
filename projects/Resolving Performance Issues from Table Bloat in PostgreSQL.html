@@ -1,0 +1,74 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🛠️ Resolving Performance Issues from Table Bloat in PostgreSQL</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Addressed performance degradation in a PostgreSQL database caused by table bloat. The goal was to restore optimal performance by managing bloated tables and preventing future occurrences.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>The database was experiencing significant slowdowns due to large, bloated tables, affecting query performance and overall system efficiency.</li>
+            <li>Manual intervention was needed to clean up the bloat and implement strategies to prevent similar issues from arising in the future.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">📊 Analysis</h4>
+            <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">
+                Identified bloated tables using PostgreSQL's system catalog views and monitoring tools to assess the extent of the bloat and its impact on performance.
+            </p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔄 Vacuuming</h4>
+            <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">
+                Performed <code>VACUUM</code> operations on the affected tables to reclaim storage and reduce bloat. Used <code>VACUUM FULL</code> where necessary to achieve a more thorough cleanup.
+            </p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔍 Analyzing</h4>
+            <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">
+                Ran <code>ANALYZE</code> to update table statistics and improve query planning, ensuring that the database optimizer had accurate information for better performance.
+            </p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔧 Auto-Vacuum Configuration</h4>
+            <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">
+                Reviewed and adjusted auto-vacuum settings to prevent future bloat. Configured parameters such as <code>autovacuum_vacuum_scale_factor</code>, <code>autovacuum_analyze_scale_factor</code>, and <code>autovacuum_vacuum_cost_delay</code> to ensure timely and efficient vacuum operations.
+            </p>
+        </div>
+        <div>
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🧪 Testing and Validation</h4>
+            <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">
+                Monitored the database performance post-implementation to ensure that the changes had a positive impact and that no new bloat issues were emerging.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Successfully resolved performance issues caused by table bloat, leading to significant improvements in query performance and overall database efficiency.</li>
+            <li>Established proactive maintenance procedures through enhanced auto-vacuum settings, reducing the likelihood of future bloat and ensuring ongoing optimal performance.</li>
+            <li>Enhanced database reliability and performance stability by addressing and preventing bloat-related issues.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">PostgreSQL, <code>VACUUM</code>, <code>ANALYZE</code>, Auto-Vacuum Configuration, Performance Tuning</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Restored and improved the performance of the PostgreSQL database by effectively managing and preventing table bloat.</li>
+            <li>Demonstrated expertise in database maintenance and performance optimization, contributing to a more efficient and reliable system.</li>
+        </ul>
+    </section>
+</div>

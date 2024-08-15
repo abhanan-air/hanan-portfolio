@@ -1,0 +1,75 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🔄 Upgrading PostgreSQL 10 to PostgreSQL 14 with Performance Optimization</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Upgraded a PostgreSQL 10 database on CentOS to PostgreSQL 14 on a Debian-based Linux system. Addressed a significant performance degradation that occurred post-upgrade by turning off Just-In-Time (JIT) compilation features in PostgreSQL 14.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>The upgrade initially resulted in a 70% performance degradation despite attempts to optimize various PostgreSQL parameters.</li>
+            <li>Identifying the root cause of the performance drop, which was not resolved through standard parameter tuning.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔄 Upgrade Process</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>pg_dump:</strong> Utilized <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_dump</code> to export the PostgreSQL 10 database and <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_restore</code> to import it into PostgreSQL 14 on the new Debian-based Linux environment.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>System Migration:</strong> Managed the migration process between different Linux distributions (CentOS to Debian-based) while ensuring data integrity and minimal downtime.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔍 Performance Issue Investigation</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Initial Tuning Attempts:</strong> Applied standard performance tuning techniques, including adjusting shared buffers, work memory, and other relevant PostgreSQL parameters. However, these adjustments did not resolve the performance degradation.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Monitoring and Analysis:</strong> Monitored query execution times, system resource usage, and PostgreSQL logs to identify any anomalies or bottlenecks introduced by the upgrade.
+            </p>
+        </div>
+
+        <div>
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔧 Resolution</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>JIT Compilation in PostgreSQL 14:</strong> Identified that the introduction of Just-In-Time (JIT) compilation in PostgreSQL 14, specifically <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">jit</code>, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">jit_expression</code>, and <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">jit_tuple_deforming</code>, was causing significant overhead in the upgraded environment.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Disabling JIT Features:</strong> Turned off JIT by setting <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">jit = off</code>, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">jit_expression = off</code>, and <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">jit_tuple_deforming = off</code> in the PostgreSQL 14 configuration. This action led to an immediate improvement in performance, restoring it to levels comparable to the pre-upgrade PostgreSQL 10 environment.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Successfully upgraded from PostgreSQL 10 to PostgreSQL 14 with minimal downtime and data integrity maintained.</li>
+            <li>Resolved a 70% performance degradation by disabling specific JIT features, resulting in restored and optimized database performance.</li>
+            <li>Ensured the upgraded PostgreSQL 14 instance was stable and capable of handling the existing workload efficiently.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">PostgreSQL 10, PostgreSQL 14, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_dump</code>, JIT Compilation, Performance Tuning</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Enabled a smooth transition to PostgreSQL 14 with optimized performance, ensuring the system could take advantage of the new features in the latest PostgreSQL version without sacrificing performance.</li>
+            <li>Demonstrated the ability to troubleshoot and resolve complex performance issues arising from system upgrades.</li>
+            <li>Improved overall database reliability and responsiveness in the upgraded environment.</li>
+        </ul>
+    </section>
+</div>

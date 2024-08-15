@@ -1,0 +1,68 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🚀 Enhancing PostgreSQL JSONB Query Performance with Generated Columns & Indexing</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            The goal was to significantly boost the performance of a PostgreSQL query that was slowing down due to filtering on JSONB data within a view. The query took substantial time to execute due to the overhead of JSONB parsing.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>The query's performance was bottlenecked by the necessity to parse JSONB objects, which wasn't optimized by any indexing.</li>
+            <li>High query latency impacted the system's responsiveness, particularly under heavy load conditions.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🕵️ Investigation</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                After analyzing the query, it was clear that the performance degradation was due to heavy JSONB parsing. The key was to eliminate this overhead while maintaining query accuracy.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">💡 Solution</h4>
+            <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+                <li><strong>Generated Column:</strong> Created a generated column in the table to extract the frequently queried JSONB keys, reducing the need for real-time parsing.</li>
+                <li><strong>Indexing:</strong> Implemented an index on the generated column to optimize data retrieval and speed up query execution.</li>
+                <li><strong>View Optimization:</strong> Modified the view to leverage the generated column, allowing the query to benefit from the new indexing strategy.</li>
+            </ul>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">📊 Validation</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Post-implementation benchmarking revealed a 99% performance improvement, reducing query time from several seconds to milliseconds. Continuous monitoring ensured that these gains were sustained under varying workloads.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Achieved a 99% reduction in query execution time by eliminating the need for real-time JSONB parsing.</li>
+            <li>Improved overall system efficiency and responsiveness, particularly in high-load scenarios.</li>
+            <li>Provided a scalable and repeatable solution for similar performance challenges in PostgreSQL environments.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">PostgreSQL, JSONB, Generated Columns, Indexing, View Optimization</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Enabled the system to handle higher query loads with minimal latency.</li>
+            <li>Reduced CPU and I/O overhead by eliminating unnecessary JSONB parsing during query execution.</li>
+            <li>Provided a scalable solution, ensuring long-term performance and reliability.</li>
+        </ul>
+    </section>
+</div>

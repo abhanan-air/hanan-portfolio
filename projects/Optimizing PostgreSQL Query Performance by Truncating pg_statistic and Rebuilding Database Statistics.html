@@ -1,0 +1,68 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🔄 Resolving Query Performance Issues by Truncating <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code> and Rebuilding Statistics in PostgreSQL 14</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Address severe query performance degradation in PostgreSQL 14 by truncating the <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code> table and rebuilding the database statistics, leading to significant performance improvements.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>A critical production environment was experiencing unexpected query performance issues, with certain queries running much slower than anticipated.</li>
+            <li>Traditional performance tuning methods, including index optimization and query rewrites, were ineffective.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔍 Investigation</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>System Analysis:</strong> Conducted an in-depth analysis of the system's query execution plans, which revealed that the PostgreSQL optimizer was making poor decisions due to outdated or corrupt statistics.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Statistics Review:</strong> Identified that the <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code> table, which stores statistics for database objects, had become bloated or corrupted, leading to inefficient query planning.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔧 Resolution</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Truncating <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code>:</strong> Truncated the <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code> table to remove the outdated or corrupt statistics that were causing the optimizer to make suboptimal choices.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Rebuilding Statistics:</strong> Ran <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">ANALYZE</code> on the entire database to rebuild the statistics from scratch. This allowed PostgreSQL to gather fresh data about the distribution of values within the tables, leading to more accurate and efficient query plans.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                <strong>Query Plan Optimization:</strong> Re-evaluated query execution plans after the statistics were rebuilt to ensure that the optimizer was now making optimal decisions based on the newly gathered data.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Successfully resolved the performance degradation by restoring the accuracy of the query planner through the truncation of <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code> and rebuilding of database statistics.</li>
+            <li>Query execution times improved significantly, with some queries showing performance gains of up to 80%.</li>
+            <li>Established a proactive maintenance routine to ensure the long-term stability and performance of the database.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">PostgreSQL 14, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_statistic</code>, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">ANALYZE</code>, Query Optimization</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Demonstrated expertise in diagnosing and resolving complex query performance issues by targeting the root cause related to database statistics.</li>
+            <li>Enhanced the overall performance and reliability of the PostgreSQL 14 environment, ensuring that the database could efficiently handle production workloads.</li>
+            <li>Improved the ability of the PostgreSQL optimizer to make accurate decisions, leading to more consistent and predictable query performance.</li>
+        </ul>
+    </section>
+</div>

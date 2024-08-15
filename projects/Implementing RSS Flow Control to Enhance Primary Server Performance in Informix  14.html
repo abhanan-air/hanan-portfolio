@@ -1,0 +1,64 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🔄 Implementing RSS Flow Control to Enhance Primary Server Performance in IBM Informix</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Addressed performance issues caused by the Remote Secondary Server (RSS) in IBM Informix, which was becoming a bottleneck and causing slowness on the primary server. Implemented RSS flow control to mitigate the issue and enhance system performance.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>The RSS, being a remote secondary server, was causing significant performance degradation on the primary server due to its resource consumption and impact on server responsiveness.</li>
+            <li>Needed to adjust RSS settings to ensure that it no longer negatively affected the primary server’s performance.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔍 Analysis</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Identified the RSS as the source of performance bottlenecks. Monitored system metrics and logs to confirm that the remote secondary server was consuming excessive resources and impacting primary server performance.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">⚙️ RSS Flow Control</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Implemented RSS flow control by adjusting the flow control setting to <code>-1</code>. This configuration helps in controlling the resource consumption of the RSS, ensuring it operates efficiently without causing undue strain on the primary server.
+            </p>
+        </div>
+
+        <div>
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔍 Testing and Validation</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Monitored the system performance after implementing the changes to verify improvements. Ensured that the primary server’s responsiveness and overall performance were enhanced.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Successfully mitigated the performance bottleneck caused by the RSS. The primary server’s performance improved, resulting in better responsiveness and reduced slowness.</li>
+            <li>Demonstrated effective management of Informix resources to optimize overall system performance.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">IBM Informix, Remote Secondary Server (RSS), Flow Control, Performance Optimization</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Improved primary server performance by addressing the RSS bottleneck issue.</li>
+            <li>Enhanced system responsiveness and reliability, contributing to a more efficient database environment.</li>
+        </ul>
+    </section>
+</div>

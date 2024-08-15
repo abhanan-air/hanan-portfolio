@@ -1,0 +1,59 @@
+<div style="font-family: 'Roboto', sans-serif; max-width: 800px; margin: 20px auto; padding: 25px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #34495e; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 28px;">🔍 Optimizing Query Performance with Trigram Indexing in PostgreSQL 16</h2>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🎯 Objective</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Identified a critical performance bottleneck in a PostgreSQL 16 database where a frequently executed query was taking 7-8 seconds to return results. The query’s filter criteria involved a <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">LIKE</code> operator with a wildcard, causing it to bypass traditional B-tree indexing and leading to full table scans.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔍 Challenges</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>The database handled a significant volume of data, and the slow query was negatively impacting the application’s performance, leading to delays in data retrieval and user dissatisfaction.</li>
+            <li>Standard indexing methods were ineffective due to the nature of the <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">LIKE</code> operator with leading wildcards, necessitating a more specialized approach to indexing.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🔧 Approach</h3>
+        <div style="margin-bottom: 20px;">
+            <h4 style="color: #8e44ad; font-size: 20px; margin-bottom: 10px;">🔍 Analysis and Optimization</h4>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Conducted an in-depth analysis of the query execution plan using <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">EXPLAIN ANALYZE</code> to identify the source of inefficiency.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Introduced the <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_trgm</code> (Trigram) extension, which is specifically designed to optimize text search operations like <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">LIKE</code> and <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">ILIKE</code> that involve pattern matching.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Created a trigram index on the targeted text field, enabling PostgreSQL to use the index for pattern matching rather than performing a full table scan.
+            </p>
+            <p style="font-size: 16px; line-height: 1.6;">
+                Fine-tuned PostgreSQL configuration parameters to further enhance index usage and query performance.
+            </p>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🏆 Outcome</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>The implementation of the trigram index resulted in a dramatic reduction in query execution time from 7-8 seconds to mere milliseconds, improving performance by over 99%.</li>
+            <li>The optimization led to a noticeable increase in the application’s responsiveness and overall user satisfaction.</li>
+            <li>Reduced database load and resource consumption, freeing up server capacity for other critical tasks.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">🛠️ Technologies Used</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #2c3e50;">PostgreSQL 16, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">pg_trgm</code> extension, Trigram Indexing, Query Optimization, <code style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 2px 4px; color: #c0392b;">EXPLAIN ANALYZE</code>, PostgreSQL Configuration Tuning</p>
+    </section>
+
+    <section>
+        <h3 style="color: #2980b9; font-size: 24px; margin-bottom: 12px;">📈 Impact</h3>
+        <ul style="font-size: 16px; line-height: 1.6; padding-left: 20px; list-style-type: disc; color: #2c3e50;">
+            <li>Enhanced application performance, leading to improved user experience and operational efficiency.</li>
+            <li>Demonstrated expertise in advanced PostgreSQL optimization techniques, particularly in handling complex text search scenarios.</li>
+        </ul>
+    </section>
+</div>
